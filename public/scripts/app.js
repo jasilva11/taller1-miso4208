@@ -148,6 +148,7 @@
         }
 
         if (app.isLoading) {
+            window.cardLoadTime = performance.now();
             app.spinner.setAttribute('hidden', true);
             app.container.removeAttribute('hidden');
             app.isLoading = false;
@@ -263,6 +264,7 @@
             });
         } else {
             app.updateTimetableCard(initialStationTimetable);
+            window.firstLoadTime = performance.now();
             app.selectedTimetables= [
               {key: initialStationTimetable.key, label: initialStationTimetable.label}
             ];
